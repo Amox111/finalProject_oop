@@ -7,17 +7,21 @@
   "license": "MIT",
   "contributors": [
     {
-      "fullname": "John Doe",
-      "username": "username1",
-      "studentId": "12345678"
+      "fullname": "Chomchanok Khwammana",
+      "username": "Amox111",
+      "studentId": "68010209",
+      "fullname2": "",
+      "username2": "",
+      "studentId2": ""
     }
+    
   ],
   "project": {
     "model": {
-      "id": null,
-      "name": null
+      "id": 6,
+      "name": "Event Management System"
     },
-    "sumStudentId": null
+    "sumStudentId": 136020253
   },
   "scripts": {
     "build": "nest build",
