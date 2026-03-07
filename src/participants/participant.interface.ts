@@ -1,16 +1,16 @@
 export enum participantStatus {
-  REGISTERED = 'REGISTERED',
-  CONFIRMED = 'CONFIRMED',
-  ATTENDED = 'ATTENDED',
-  CANCELLED = 'CANCELLED',
-  WAITLISTED = 'WAITLISTED',
+  REGISTERED = 'registered',
+  CONFIRMED = 'confirmed',
+  ATTENDED = 'attended',
+  CANCELLED = 'cancelled',
+  WAITLISTED = 'waitlisted',
 }
 
 export enum participantRole {
-  ATTENDEE = 'ATTENDEE',
-  SPEAKER = 'SPEAKER',
-  VOLUNTEER = 'VOLUNTEER',
-  VIP = 'VIP',
+  ATTENDEE = 'attendee',
+  SPEAKER = 'speaker',
+  VOLUNTEER = 'volunteer',
+  VIP = 'vip',
 }
 
 export interface participant {

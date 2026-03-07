@@ -1,18 +1,18 @@
 export enum eventStatus {
-  DRAFT = 'DRAFT',
-  PUBLISHED = 'PUBLISHED',
-  ONGOING = 'ONGOING',
-  COMPLETED = 'COMPLETED',
-  CANCELLED = 'CANCELLED',
+  DRAFT = 'draft',
+  PUBLISHED = 'published',
+  ONGOING = 'ongoing',
+  COMPLETED = 'compleated',
+  CANCELLED = 'cancelled',
 }
 
 export enum eventCategory {
-  CONFERENCE = 'CONFERENCE',
-  WORKSHOP = 'WORKSHOP',
-  SEMINAR = 'SEMINAR',
-  CONCERT = 'CONCERT',
-  SPORT = 'SPORT',
-  OTHER = 'OTHER',
+  CONFERENCE = 'conference',
+  WORKSHOP = 'workshop',
+  SEMINAR = 'seminar',
+  CONCERT = 'concert',
+  SPORT = 'sport',
+  OTHER = 'other',
 }
 
 export interface eventLocation {
