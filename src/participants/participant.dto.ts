@@ -29,14 +29,14 @@ export class patchParticipantDto {
 }
   
 export interface Participant {
-  id: string;
-  eventId: string;
+  id: string; xxx
+  eventId: string; 
   firstName: string;
   lastName: string;
   email: string;
   phone: string;
   role: participantRole;
-  status: participantStatus;
+  status: participantStatus; xxx
   emergencyContact: emergencyContact;
   dietaryRequirements: string;
   specialNeeds: string;
@@ -44,6 +44,6 @@ export interface Participant {
   confirmedAt: string | null;   
   checkedInAt: string | null; 
   notes: string;
-  createdAt: string;
-  updatedAt: string;
+  createdAt: string; xxx
+  updatedAt: string; xxx
 }*/

@@ -1,7 +1,7 @@
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 import {
     IsString, IsNotEmpty, IsEnum, IsBoolean, IsInt,
-    IsPositive, IsISO8601, IsArray, IsOptional,
+    IsPositive, Matches, IsArray, IsOptional,
     IsUrl, ValidateNested, ValidateIf,
 } from 'class-validator';
 import { Type } from 'class-transformer';
@@ -70,12 +70,13 @@ export class createEventDto {
     organizerName!: string;
 
     @ApiProperty({ example: '2026-06-01' })
-    @IsISO8601({}, { message: 'startDate must be a valid date string' })
+    @Matches(/^\d{4}-\d{2}-\d{2}$/, { message: 'startDate must be in format YYYY-MM-DD' })
     startDate!: string;
 
     @ApiProperty({ example: '2026-06-01' })
-    @IsISO8601({}, { message: 'endDate must be a valid date string' })
+    @Matches(/^\d{4}-\d{2}-\d{2}$/, { message: 'endDate must be in format YYYY-MM-DD' })
     endDate!: string;
+        
 
     @ApiProperty({ example: 500 })
     @IsInt({ message: 'maxParticipants must be an integer' })
@@ -83,7 +84,7 @@ export class createEventDto {
     maxParticipants!: number;
 
     @ApiProperty({ example: '2026-05-25' })
-    @IsISO8601({}, { message: 'registrationDeadline must be a valid ISO 8601 date string' })
+    @Matches(/^\d{4}-\d{2}-\d{2}$/, { message: 'registrationDeadline must be in format YYYY-MM-DD' })
     registrationDeadline!: string;
 
     @ApiProperty({ example: true })
@@ -131,11 +132,11 @@ export class updateEventDto {
     organizerName!: string;
 
     @ApiProperty({ example: '2026-06-01' })
-    @IsISO8601({}, { message: 'startDate must be a valid date string' })
+    @Matches(/^\d{4}-\d{2}-\d{2}$/, { message: 'startDate must be in format YYYY-MM-DD' })
     startDate!: string;
 
     @ApiProperty({ example: '2026-06-01' })
-    @IsISO8601({}, { message: 'endDate must be a valid date string' })
+    @Matches(/^\d{4}-\d{2}-\d{2}$/, { message: 'endDate must be in format YYYY-MM-DD' })
     endDate!: string;
 
     @ApiProperty({ example: 600 })
@@ -144,7 +145,7 @@ export class updateEventDto {
     maxParticipants!: number;
 
     @ApiProperty({ example: '2026-05-25' })
-    @IsISO8601({}, { message: 'registrationDeadline must be a valid date string' })
+    @Matches(/^\d{4}-\d{2}-\d{2}$/, { message: 'registrationDeadline must be in format YYYY-MM-DD' })
     registrationDeadline!: string;
 
     @ApiProperty({ example: true })
@@ -200,12 +201,12 @@ export class patchEventDto {
 
     @ApiPropertyOptional({ example: '2026-06-01' })
     @IsOptional()
-    @IsISO8601({}, { message: 'startDate must be a valid date string' })
+    @Matches(/^\d{4}-\d{2}-\d{2}$/, { message: 'startDate must be in format YYYY-MM-DD' })
     startDate?: string;
 
     @ApiPropertyOptional({ example: '2026-06-01' })
     @IsOptional()
-    @IsISO8601({}, { message: 'endDate must be a valid date string' })
+    @Matches(/^\d{4}-\d{2}-\d{2}$/, { message: 'endDate must be in format YYYY-MM-DD' })
     endDate?: string;
 
     @ApiPropertyOptional({ example: 400 })
@@ -216,7 +217,7 @@ export class patchEventDto {
 
     @ApiPropertyOptional({ example: '2026-05-25' })
     @IsOptional()
-    @IsISO8601({}, { message: 'registrationDeadline must be a valid date string' })
+    @Matches(/^\d{4}-\d{2}-\d{2}$/, { message: 'registrationDeadline must be in format YYYY-MM-DD' })
     registrationDeadline?: string;
 
     @ApiPropertyOptional({ example: true })
