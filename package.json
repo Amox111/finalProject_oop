@@ -5,19 +5,22 @@
   "author": "",
   "private": true,
   "license": "MIT",
-  "contributors": [
+  "contributors": 
+  [
     {
       "fullname": "Chomchanok Khwammana",
       "username": "Amox111",
-      "studentId": "68010209",
-      "fullname2": "Klamai Ruansakon",
-      "username2": "68010044-klamai",
-      "studentId2": "68010044"
+      "studentId": "68010209"
+    },
+    {
+      "fullname": "Klamai Ruansakon",
+      "username": "68010044-klamai",
+      "studentId": "68010044"
     }
   ],
   "project": {
     "model": {
-      "id": 3,
+      "id": "3",
       "name": "Event Management System"
     },
     "sumStudentId": 136020253
