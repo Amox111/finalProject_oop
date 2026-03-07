@@ -13,7 +13,13 @@ export enum participantRole {
   VIP = 'vip',
 }
 
-export interface participant {
+export interface emergencyContact {
+  name: string;
+  phone: string;
+  relationship: string;
+}
+
+export interface Participant {
   id: string;
   eventId: string;
   firstName: string;
@@ -22,11 +28,12 @@ export interface participant {
   phone: string;
   role: participantRole;
   status: participantStatus;
+  emergencyContact: emergencyContact;
   dietaryRequirements: string;
   specialNeeds: string;
   registeredAt: string;
-  confirmedAt: string | null;
-  checkedInAt: string | null;
+  confirmedAt: string | null;   
+  checkedInAt: string | null; 
   notes: string;
   createdAt: string;
   updatedAt: string;

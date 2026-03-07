@@ -1,20 +1,49 @@
 import { ApiProperty } from "@nestjs/swagger";
 import { IsNotEmpty, IsString } from "class-validator";
 
-export class eventLocationDto{
-    @ApiProperty({ example: 'MBK' })
-    @IsString()
-    @IsNotEmpty({ message: 'venue must not be empty' })
-    venue!: string;
+export class emergencyContactDto {
+  @ApiProperty({ example: 'Jane Doe' })
+  @IsString()
+  @IsNotEmpty({ message: 'emergencyContact name must not be empty' })
+  name!: string;
 
-    @
+  @ApiProperty
 }
 
-/*export interface eventLocation {
-  venue: string;
-  address: string;
-  city: string;
-  country: string;
-  isOnline: boolean;
-  onlineUrl?: string;
+export class createParticipantDto {
+
+}
+
+export class updateParticipantDto {
+ 
+}
+
+export class patchParticipantDto {
+
+}
+
+/*export interface emergencyContact {
+  name: string;
+  phone: string;
+  relationship: string;
+}
+  
+export interface Participant {
+  id: string;
+  eventId: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  role: participantRole;
+  status: participantStatus;
+  emergencyContact: emergencyContact;
+  dietaryRequirements: string;
+  specialNeeds: string;
+  registeredAt: string;
+  confirmedAt: string | null;   
+  checkedInAt: string | null; 
+  notes: string;
+  createdAt: string;
+  updatedAt: string;
 }*/
