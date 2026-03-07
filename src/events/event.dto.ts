@@ -65,12 +65,12 @@ export class CreateEventDto {
     @IsNotEmpty({ message: 'organizerName must not be empty' })
     organizerName!: string;
 
-    @ApiProperty({ example: '2026-06-01' })
-    @IsISO8601({}, { message: 'startDate must be a valid date string' })
+    @ApiProperty({ example: '2026-06-01T09:00:00.000Z' })
+    @IsISO8601({}, { message: 'startDate must be a valid ISO 8601 date string' })
     startDate!: string;
 
-    @ApiProperty({ example: '2026-06-01' })
-    @IsISO8601({}, { message: 'endDate must be a valid date string' })
+    @ApiProperty({ example: '2026-06-01T17:00:00.000Z' })
+    @IsISO8601({}, { message: 'endDate must be a valid ISO 8601 date string' })
     endDate!: string;
 
     @ApiProperty({ example: 500 })
@@ -78,7 +78,7 @@ export class CreateEventDto {
     @IsPositive({ message: 'maxParticipants must be a positive number' })
     maxParticipants!: number;
 
-    @ApiProperty({ example: '2026-05-25' })
+    @ApiProperty({ example: '2026-05-25T23:59:59.000Z' })
     @IsISO8601({}, { message: 'registrationDeadline must be a valid ISO 8601 date string' })
     registrationDeadline!: string;
 
