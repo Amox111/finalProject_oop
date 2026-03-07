@@ -73,7 +73,7 @@ export class eventsService {
 
     this.events.push(newEvent);
     return newEvent;
-  }
+    }
 //
     update(id: string, dto: updateEventDto): Event {
         const index = this.events.findIndex((e) => e.id === id);
