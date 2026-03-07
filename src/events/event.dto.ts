@@ -136,7 +136,7 @@ export class updateEventDto {
 
     @ApiProperty({ example: '2026-06-01T17:00:00.000Z' })
     @IsISO8601({}, { message: 'endDate must be a valid ISO 8601 date string' })
-    endDat!: string;
+    endDate!: string;
 
     @ApiProperty({ example: 500 })
     @IsInt({ message: 'maxParticipants must be an integer' })

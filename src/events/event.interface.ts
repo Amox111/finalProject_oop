@@ -24,7 +24,7 @@ export interface eventLocation {
   onlineUrl?: string;
 }
 
-export interface event {
+export interface Event {
   id: string;
   title: string;
   description: string;

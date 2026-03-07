@@ -2,12 +2,14 @@ import { ApiProperty } from "@nestjs/swagger";
 import { IsNotEmpty, IsString } from "class-validator";
 
 export class emergencyContactDto {
-  @ApiProperty({ example: "John Doe" })
+  @ApiProperty({ example: 'John Doe' })
   @IsString()
   @IsNotEmpty({ message: 'emergencyContact name must not be empty' })
   name!: string;
 
-  @ApiProperty
+  @ApiProperty({ example: '+66889944556' })
+  @IsString()
+  
 }
 
 export class createParticipantDto {
@@ -23,13 +25,13 @@ export class patchParticipantDto {
 }
 
 /*export interface emergencyContact {
-  name: string;
-  phone: string;
+  name: string; /
+  phone: string; 
   relationship: string;
 }
   
 export interface Participant {
-  id: string; xxx
+  id: string; xxxไม่
   eventId: string; 
   firstName: string;
   lastName: string;
@@ -44,6 +46,6 @@ export interface Participant {
   confirmedAt: string | null;   
   checkedInAt: string | null; 
   notes: string;
-  createdAt: string; xxx
-  updatedAt: string; xxx
+  createdAt: string; xxxไม่
+  updatedAt: string; xxxไม่
 }*/
