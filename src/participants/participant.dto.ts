@@ -2,7 +2,7 @@ import { ApiProperty } from "@nestjs/swagger";
 import { IsNotEmpty, IsString } from "class-validator";
 
 export class emergencyContactDto {
-  @ApiProperty({ example: 'Jane Doe' })
+  @ApiProperty({ example: "John Doe" })
   @IsString()
   @IsNotEmpty({ message: 'emergencyContact name must not be empty' })
   name!: string;

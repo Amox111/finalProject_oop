@@ -1,7 +1,7 @@
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 import {
     IsString, IsNotEmpty, IsEnum, IsBoolean, IsInt,
-    IsPositive, Matches, IsArray, IsOptional,
+    IsPositive, IsISO8601, IsArray, IsOptional,
     IsUrl, ValidateNested, ValidateIf,
 } from 'class-validator';
 import { Type } from 'class-transformer';
@@ -70,13 +70,12 @@ export class createEventDto {
     organizerName!: string;
 
     @ApiProperty({ example: '2026-06-01' })
-    @Matches(/^\d{4}-\d{2}-\d{2}$/, { message: 'startDate must be in format YYYY-MM-DD' })
+    @IsISO8601({}, { message: 'startDate must be a valid date string' })
     startDate!: string;
 
     @ApiProperty({ example: '2026-06-01' })
-    @Matches(/^\d{4}-\d{2}-\d{2}$/, { message: 'endDate must be in format YYYY-MM-DD' })
+    @IsISO8601({}, { message: 'endDate must be a valid date string' })
     endDate!: string;
-        
 
     @ApiProperty({ example: 500 })
     @IsInt({ message: 'maxParticipants must be an integer' })
@@ -84,7 +83,7 @@ export class createEventDto {
     maxParticipants!: number;
 
     @ApiProperty({ example: '2026-05-25' })
-    @Matches(/^\d{4}-\d{2}-\d{2}$/, { message: 'registrationDeadline must be in format YYYY-MM-DD' })
+    @IsISO8601({}, { message: 'registrationDeadline must be a valid ISO 8601 date string' })
     registrationDeadline!: string;
 
     @ApiProperty({ example: true })
@@ -131,21 +130,21 @@ export class updateEventDto {
     @IsNotEmpty({ message: 'organizerName must not be empty' })
     organizerName!: string;
 
-    @ApiProperty({ example: '2026-06-01' })
-    @Matches(/^\d{4}-\d{2}-\d{2}$/, { message: 'startDate must be in format YYYY-MM-DD' })
+    @ApiProperty({ example: '2026-06-01T09:00:00.000Z' })
+    @IsISO8601({}, { message: 'startDate must be a valid ISO 8601 date string' })
     startDate!: string;
 
-    @ApiProperty({ example: '2026-06-01' })
-    @Matches(/^\d{4}-\d{2}-\d{2}$/, { message: 'endDate must be in format YYYY-MM-DD' })
-    endDate!: string;
+    @ApiProperty({ example: '2026-06-01T17:00:00.000Z' })
+    @IsISO8601({}, { message: 'endDate must be a valid ISO 8601 date string' })
+    endDat!: string;
 
-    @ApiProperty({ example: 600 })
+    @ApiProperty({ example: 500 })
     @IsInt({ message: 'maxParticipants must be an integer' })
     @IsPositive({ message: 'maxParticipants must be a positive number' })
     maxParticipants!: number;
 
-    @ApiProperty({ example: '2026-05-25' })
-    @Matches(/^\d{4}-\d{2}-\d{2}$/, { message: 'registrationDeadline must be in format YYYY-MM-DD' })
+    @ApiProperty({ example: '2026-05-25T23:59:59.000Z' })
+    @IsISO8601({}, { message: 'registrationDeadline must be a valid ISO 8601 date string' })
     registrationDeadline!: string;
 
     @ApiProperty({ example: true })
@@ -199,25 +198,25 @@ export class patchEventDto {
     @IsNotEmpty({ message: 'organizerName must not be empty if provided' })
     organizerName?: string;
 
-    @ApiPropertyOptional({ example: '2026-06-01' })
+    @ApiPropertyOptional({ example: '2026-06-01T09:00:00.000Z' })
     @IsOptional()
-    @Matches(/^\d{4}-\d{2}-\d{2}$/, { message: 'startDate must be in format YYYY-MM-DD' })
+    @IsISO8601({}, { message: 'startDate must be a valid ISO 8601 date string' })
     startDate?: string;
 
-    @ApiPropertyOptional({ example: '2026-06-01' })
+    @ApiPropertyOptional({ example: '2026-06-01T17:00:00.000Z' })
     @IsOptional()
-    @Matches(/^\d{4}-\d{2}-\d{2}$/, { message: 'endDate must be in format YYYY-MM-DD' })
+    @IsISO8601({}, { message: 'endDate must be a valid ISO 8601 date string' })
     endDate?: string;
 
-    @ApiPropertyOptional({ example: 400 })
+    @ApiPropertyOptional({ example: 700 })
     @IsOptional()
     @IsInt({ message: 'maxParticipants must be an integer' })
     @IsPositive({ message: 'maxParticipants must be a positive number' })
     maxParticipants?: number;
 
-    @ApiPropertyOptional({ example: '2026-05-25' })
+    @ApiPropertyOptional({ example: '2026-05-25T23:59:59.000Z' })
     @IsOptional()
-    @Matches(/^\d{4}-\d{2}-\d{2}$/, { message: 'registrationDeadline must be in format YYYY-MM-DD' })
+    @IsISO8601({}, { message: 'registrationDeadline must be a valid ISO 8601 date string' })
     registrationDeadline?: string;
 
     @ApiPropertyOptional({ example: true })

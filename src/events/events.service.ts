@@ -9,6 +9,9 @@ export class eventsService {
         return `event - ${String(this.idCounter++).padStart(3,"0")}`;
     }
 
+    private now(): string {
+        return new Date().toISOString();
+  }
 
     
 }
