@@ -1,4 +1,4 @@
-export enum eventStatus {
+export enum EventStatus {
   DRAFT = 'draft',
   PUBLISHED = 'published',
   ONGOING = 'ongoing',
@@ -6,7 +6,7 @@ export enum eventStatus {
   CANCELLED = 'cancelled',
 }
 
-export enum eventCategory {
+export enum EventCategory {
   CONFERENCE = 'conference',
   WORKSHOP = 'workshop',
   SEMINAR = 'seminar',
@@ -15,7 +15,7 @@ export enum eventCategory {
   OTHER = 'other',
 }
 
-export interface eventLocation {
+export interface EventLocation {
   venue: string;
   address: string;
   city: string;
@@ -28,9 +28,9 @@ export interface Event {
   id: string;
   title: string;
   description: string;
-  category: eventCategory;
-  status: eventStatus;
-  location: eventLocation;
+  category: EventCategory;
+  status: EventStatus;
+  location: EventLocation;
   organizerId: string;
   organizerName: string;
   startDate: string;

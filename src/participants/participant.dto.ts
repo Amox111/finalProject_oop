@@ -1,30 +1,32 @@
 import { ApiProperty } from "@nestjs/swagger";
 import { IsNotEmpty, IsString } from "class-validator";
 
-export class emergencyContactDto {
+export class EmergencyContactDto {
   @ApiProperty({ example: 'John Doe' })
   @IsString()
   @IsNotEmpty({ message: 'emergencyContact name must not be empty' })
   name!: string;
 
-  @ApiProperty({ example: '+66889944556' })
+
+  @ApiProperty({ example: '+66884455669' })
   @IsString()
-  
+  @IsNotEmpty({ message: 'emergencyContact.phone must not be empty' })
+  phone!: string;
 }
 
-export class createParticipantDto {
+export class CreateParticipantDto {
 
 }
 
-export class updateParticipantDto {
+export class UpdateParticipantDto {
  
 }
 
-export class patchParticipantDto {
+export class PatchatchParticipantDto {
 
 }
 
-/*export interface emergencyContact {
+/*export interface EmergencyContact {
   name: string; /
   phone: string; 
   relationship: string;

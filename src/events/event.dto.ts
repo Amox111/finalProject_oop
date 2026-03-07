@@ -1,13 +1,9 @@
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
-import {
-    IsString, IsNotEmpty, IsEnum, IsBoolean, IsInt,
-    IsPositive, IsISO8601, IsArray, IsOptional,
-    IsUrl, ValidateNested, ValidateIf,
-} from 'class-validator';
+import { IsString, IsNotEmpty, IsEnum, IsBoolean, IsInt, IsPositive, IsISO8601, IsArray, IsOptional, IsUrl, ValidateNested, ValidateIf } from 'class-validator';
 import { Type } from 'class-transformer';
-import { eventCategory, eventStatus } from './event.interface';
+import { EventCategory, EventStatus } from './event.interface';
 
-export class eventLocationDto {
+export class EventLocationDto {
     @ApiProperty({ example: 'Siam Paragon' })
     @IsString()
     @IsNotEmpty({ message: 'venue must not be empty' })
@@ -33,13 +29,13 @@ export class eventLocationDto {
     isOnline!: boolean;
 
     @ApiPropertyOptional({ example: 'https://zoom.us/xxxxx' })
-    @ValidateIf((o: eventLocationDto) => o.isOnline === true)
+    @ValidateIf((o: EventLocationDto) => o.isOnline === true)
     @IsUrl({}, { message: 'onlineUrl must be valid URL' })
     @IsOptional()
     onlineUrl?: string;
 }
 
-export class createEventDto {
+export class CreateEventDto {
     @ApiProperty({ example: 'Animonium 2026' })
     @IsString()
     @IsNotEmpty({ message: 'title must not be empty' })
@@ -50,14 +46,14 @@ export class createEventDto {
     @IsNotEmpty({ message: 'description must not be empty' })
     description!: string;
 
-    @ApiProperty({ enum: eventCategory, example: eventCategory.OTHER })
-    @IsEnum(eventCategory, { message: `category must be one of: ${Object.values(eventCategory).join(', ')}` })
-    category!: eventCategory;
+    @ApiProperty({ enum: EventCategory, example: EventCategory.OTHER })
+    @IsEnum(EventCategory, { message: `category must be one of: ${Object.values(EventCategory).join(', ')}` })
+    category!: EventCategory;
 
-    @ApiProperty({ type: eventLocationDto })
+    @ApiProperty({ type: EventLocationDto })
     @ValidateNested()
-    @Type(() => eventLocationDto)
-    location!: eventLocationDto;
+    @Type(() => EventLocationDto)
+    location!: EventLocationDto;
 
     @ApiProperty({ example: 'DEX-001' })
     @IsString()
@@ -96,7 +92,7 @@ export class createEventDto {
     tags!: string[];
 }
 
-export class updateEventDto {
+export class UpdateEventDto {
     @ApiProperty({ example: 'Animonium 2026 update' })
     @IsString()
     @IsNotEmpty({ message: 'title must not be empty' })
@@ -107,18 +103,18 @@ export class updateEventDto {
     @IsNotEmpty({ message: 'description must not be empty' })
     description!: string;
 
-    @ApiProperty({ enum: eventCategory })
-    @IsEnum(eventCategory, { message: `category must be one of: ${Object.values(eventCategory).join(', ')}` })
-    category!: eventCategory;
+    @ApiProperty({ enum: EventCategory })
+    @IsEnum(EventCategory, { message: `category must be one of: ${Object.values(EventCategory).join(', ')}` })
+    category!: EventCategory;
 
-    @ApiProperty({ enum: eventStatus })
-    @IsEnum(eventStatus, { message: `status must be one of: ${Object.values(eventStatus).join(', ')}` })
-    status!: eventStatus;
+    @ApiProperty({ enum: EventStatus })
+    @IsEnum(EventStatus, { message: `status must be one of: ${Object.values(EventStatus).join(', ')}` })
+    status!: EventStatus;
 
-    @ApiProperty({ type: eventLocationDto })
+    @ApiProperty({ type: EventLocationDto })
     @ValidateNested()
-    @Type(() => eventLocationDto)
-    location!: eventLocationDto;
+    @Type(() => EventLocationDto)
+    location!: EventLocationDto;
 
     @ApiProperty({ example: 'DEX-001' })
     @IsString()
@@ -157,7 +153,7 @@ export class updateEventDto {
     tags!: string[];
     }
 
-export class patchEventDto {
+export class PatchEventDto {
     @ApiPropertyOptional({ example: 'Animonium 2026 Patched' })
     @IsOptional()
     @IsString()
@@ -170,21 +166,21 @@ export class patchEventDto {
     @IsNotEmpty({ message: 'description must not be empty if provided' })
     description?: string;
 
-    @ApiPropertyOptional({ enum: eventCategory })
+    @ApiPropertyOptional({ enum: EventCategory })
     @IsOptional()
-    @IsEnum(eventCategory, { message: `category must be one of: ${Object.values(eventCategory).join(', ')}` })
-    category?: eventCategory;
+    @IsEnum(EventCategory, { message: `category must be one of: ${Object.values(EventCategory).join(', ')}` })
+    category?: EventCategory;
 
-    @ApiPropertyOptional({ enum: eventStatus })
+    @ApiPropertyOptional({ enum: EventStatus })
     @IsOptional()
-    @IsEnum(eventStatus, { message: `status must be one of: ${Object.values(eventStatus).join(', ')}` })
-    status?: eventStatus;
+    @IsEnum(EventStatus, { message: `status must be one of: ${Object.values(EventStatus).join(', ')}` })
+    status?: EventStatus;
 
-    @ApiPropertyOptional({ type: eventLocationDto })
+    @ApiPropertyOptional({ type: EventLocationDto })
     @IsOptional()
     @ValidateNested()
-    @Type(() => eventLocationDto)
-    location?: eventLocationDto;
+    @Type(() => EventLocationDto)
+    location?: EventLocationDto;
 
     @ApiPropertyOptional({ example: 'DEX-001' })
     @IsOptional()
