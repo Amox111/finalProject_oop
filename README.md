@@ -34,6 +34,12 @@ http://localhost:3000/api
 src/
 ├── main.ts
 ├── app.module.ts
+├── common/
+│   ├── interfaces/
+│   │   └── api-response.interface.ts
+│   └── utils/
+│       ├── response.util.ts
+│       └── global-exception.filter.ts
 └── modules/
     ├── events/
     │   ├── event.interface.ts
