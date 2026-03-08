@@ -14,7 +14,11 @@
     },
     {
       "fullname": "Klamai Ruansakon",
+<<<<<<< HEAD
       "username": "68010044-klamai",
+=======
+      "username": "68010044-klamai , your name",
+>>>>>>> 8eac404 (fix minor error)
       "studentId": "68010044"
     }
   ],
