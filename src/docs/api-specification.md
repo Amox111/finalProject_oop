@@ -1,4 +1,4 @@
-# API Specification — Event Management System
+# API Specification - Event Management System
 
 Base URL: `http://localhost:3000`
 
@@ -189,3 +189,4 @@ Remove a participant.
 | speaker |
 | volunteer |
 | vip |
+
