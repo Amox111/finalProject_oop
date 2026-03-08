@@ -61,5 +61,5 @@ docs/
 
 ## Documentation
 - [API Specification](./src/docs/api-specification.md)
-- [Data Model](./docs/data-model.md)
-- [UML Diagram](./docs/uml-diagram.md)
+- [Data Model](./src/docs/data-model.md)
+- [UML Diagram](./src/docs/uml-diagram.md)
