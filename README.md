@@ -60,6 +60,6 @@ docs/
 ```
 
 ## Documentation
-- [API Specification](./docs/api-specification.md)
+- [API Specification](./src/docs/api-specification.md)
 - [Data Model](./docs/data-model.md)
 - [UML Diagram](./docs/uml-diagram.md)
