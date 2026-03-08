@@ -28,7 +28,7 @@ export class EventLocationDto {
     @IsBoolean({ message: 'isOnline must be a boolean' })
     isOnline!: boolean;
 
-    @ApiPropertyOptional({ example: 'https://zoom.us/xxxxx' })
+    @ApiPropertyOptional({ example: 'https://zoom/xxxxx' })
     @ValidateIf((o: EventLocationDto) => o.isOnline === true)
     @IsUrl({}, { message: 'onlineUrl must be valid URL' })
     @IsOptional()

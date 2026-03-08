@@ -8,7 +8,7 @@ export class EventsService {
     private idCounter = 1;
 
     private generateId(): string {
-        return `event - ${String(this.idCounter++).padStart(3,'0')}`;
+        return `event-${String(this.idCounter++).padStart(3,'0')}`;
     }
 
     private now(): string {
