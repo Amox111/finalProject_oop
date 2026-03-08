@@ -1,4 +1,4 @@
-export enum participantStatus {
+export enum ParticipantStatus {
   REGISTERED = 'registered',
   CONFIRMED = 'confirmed',
   ATTENDED = 'attended',
@@ -6,14 +6,14 @@ export enum participantStatus {
   WAITLISTED = 'waitlisted',
 }
 
-export enum participantRole {
+export enum ParticipantRole {
   ATTENDEE = 'attendee',
   SPEAKER = 'speaker',
   VOLUNTEER = 'volunteer',
   VIP = 'vip',
 }
 
-export interface emergencyContact {
+export interface EmergencyContact {
   name: string;
   phone: string;
   relationship: string;
@@ -26,9 +26,9 @@ export interface Participant {
   lastName: string;
   email: string;
   phone: string;
-  role: participantRole;
-  status: participantStatus;
-  emergencyContact: emergencyContact;
+  role: ParticipantRole;
+  status: ParticipantStatus;
+  emergencyContact: EmergencyContact;
   dietaryRequirements: string;
   specialNeeds: string;
   registeredAt: string;

@@ -179,3 +179,4 @@ export class PatchParticipantDto {
   @IsString()
   notes?: string;
 }
+

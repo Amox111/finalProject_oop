@@ -1,9 +1,9 @@
-import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
-import { createEventDto, eventLocationDto, patchEventDto, updateEventDto } from './event.dto';
-import { Event, eventLocation, eventStatus } from './event.interface';
+import { Injectable, NotFoundException, BadRequestException } from '@nestjs/common';
+import { Event, EventStatus, EventLocation } from './event.interface';
+import { CreateEventDto, UpdateEventDto, PatchEventDto, EventLocationDto } from './event.dto';
 
 @Injectable()
-export class eventsService {
+export class EventsService {
     private events: Event[] = [];
     private idCounter = 1;
 
@@ -15,7 +15,7 @@ export class eventsService {
         return new Date().toISOString();
     }
   
-    private mapLocation(dto: eventLocationDto): eventLocation {
+    private mapLocation(dto: EventLocationDto): EventLocation {
         return {
             venue: dto.venue,
             address: dto.address,
@@ -48,7 +48,7 @@ export class eventsService {
         return event;
     }
 //
-    create(dto: createEventDto): Event {
+    create(dto: CreateEventDto): Event {
     this.validateDateLogic(dto.startDate, dto.endDate, dto.registrationDeadline);
 
     const newEvent: Event = {
@@ -56,7 +56,7 @@ export class eventsService {
         title: dto.title.trim(),
         description: dto.description.trim(),
         category: dto.category,
-        status: eventStatus.DRAFT,
+        status: EventStatus.DRAFT,
         location: this.mapLocation(dto.location),
         organizerId: dto.organizerId.trim(),
         organizerName: dto.organizerName.trim(),
@@ -75,7 +75,7 @@ export class eventsService {
     return newEvent;
     }
 //
-    update(id: string, dto: updateEventDto): Event {
+    update(id: string, dto: UpdateEventDto): Event {
         const index = this.events.findIndex((e) => e.id === id);
         if (index === -1) {
             throw new NotFoundException(`Event with id "${id}" not found`);
@@ -83,7 +83,7 @@ export class eventsService {
         this.validateDateLogic(dto.startDate, dto.endDate, dto.registrationDeadline);
 
         const updated: Event = {
-            ...this.events[index], // เอาค่าเดิมมาจ่ะ
+            ...this.events[index], // เอาค่าเดิมมา
             title: dto.title.trim(),
             description: dto.description.trim(),
             category: dto.category,
@@ -104,7 +104,7 @@ export class eventsService {
         return updated;
     }
 //
-    patch(id: string, dto: patchEventDto): Event {
+    patch(id: string, dto: PatchEventDto): Event {
     const index = this.events.findIndex((e) => e.id === id);
     if (index === -1) {
         throw new NotFoundException(`Event with id "${id}" not found`);
