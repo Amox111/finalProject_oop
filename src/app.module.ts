@@ -6,7 +6,5 @@ import { ParticipantsModule } from './participants/participants.module';
 
 @Module({
   imports: [EventsModule, ParticipantsModule],
-  controllers: [EventsController],
-  providers: [EventsService],
 })
 export class AppModule {}

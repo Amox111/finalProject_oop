@@ -40,18 +40,18 @@ export class ParticipantsService {
     }
 
     create(dto: CreateParticipantDto): Participant {
-        this.eventsService.incrementParticipants(dto.eventId);
+    this.eventsService.incrementParticipants(dto.eventId);
 
-        const isDuplicate = this.participants.some(
-        (p) =>
-            p.eventId === dto.eventId &&
-            p.email === dto.email.toLowerCase() &&
-            p.status !== ParticipantStatus.CANCELLED,
-        );
-        if (isDuplicate) {
-            this.eventsService.decrementParticipants(dto.eventId); 
-            throw new BadRequestException('A participant with this email is already registered for this event');
-        }
+    const isDuplicate = this.participants.some(
+    (p) =>
+        p.eventId === dto.eventId &&
+        p.email === dto.email.toLowerCase() &&
+        p.status !== ParticipantStatus.CANCELLED,
+    );
+    if (isDuplicate) {
+        this.eventsService.decrementParticipants(dto.eventId); 
+        throw new BadRequestException('A participant with this email is already registered for this event');
+    }
 
     const newParticipant: Participant = {
         id: this.generateId(),
