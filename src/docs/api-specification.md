@@ -157,11 +157,11 @@ Remove a participant.
 ### EventStatus
 | Value | Description |
 |-------|-------------|
-| draft | Event created but not yet published |
-| published | Event open for registration |
-| ongoing | Event is currently happening |
-| compleated | Event has ended |
-| cancelled | Event was cancelled |
+| draft | สร้างแล้วแต่ยังไม่เปิด |
+| published | เปิดให้ลงทะเบียน |
+| ongoing | กำลังจัดงาน |
+| compleated | จบแล้ว |
+| cancelled | ยกเลิก |
 
 ### EventCategory
 | Value |
@@ -176,11 +176,11 @@ Remove a participant.
 ### ParticipantStatus
 | Value | Description |
 |-------|-------------|
-| registered | Participant has registered |
-| confirmed | Registration confirmed |
-| attended | Participant checked in |
-| cancelled | Registration cancelled |
-| waitlisted | On waiting list |
+| registered | เพิ่งลงทะเบียน |
+| confirmed | ยืนยันแล้ว |
+| attended | เข้างานแล้ว |
+| cancelled | ยกเลิก |
+| waitlisted | รอคิว |
 
 ### ParticipantRole
 | Value |
@@ -189,4 +189,5 @@ Remove a participant.
 | speaker |
 | volunteer |
 | vip |
+
 
